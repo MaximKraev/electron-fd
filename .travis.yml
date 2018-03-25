@@ -1,8 +1,17 @@
 language: node_js
 node_js:
-  - "8"
+- '8'
 os: osx
 install:
-  - npm install
+- npm install
 script:
-  - npm run-script build
+- npm run-script build_macos
+- npm run-script build_pack_macos
+deploy:
+  provider: releases
+  api_key:
+    secure: S34WoORko6p6CBrfkYleX9Q9oP8pPjKCuC+krOOYeFRnbgN70NmZC2xK1MSO8yRSGEps0Eh65OJV5tdFHJiaSY/2RhtTpUBEDLHzBWsSRtF5vaDBreDP1RrpBP+QaOogFyRBPxkfWFPoKvf3se4kkEPld/SFJU4pcDJRjgXrP/+dUkooR99RUn6iZOJZ5++YssL5+9ozW3r55SOhWJMB4DKVEgLY3Ehazl08n6rtn6enyrAozNXpv6RXgvOX8pd3+H3mt3tJGiMi2QCJ20EJdxfrRWydIWIyLieyothvM44xQ0EXkIS8dQUU3FUoAkrwU+QQ5H3PlxIL6GtTpGM4NeIeY4FsZU1HxhXghxOsJwuZh3+yif9OcadanBQ7Rg7UjbZYf9ZniimzOTk8WaxeJtx4BWBo2UPP8Kn/zNbytsjmA3MwvkqBaGHRnRD6Ropk3tSwOLxxzjykeeaWQkdhu2/otpL/rmgyu/jT3GGTD0PDyVmKgeUWcAF3XsOXIAd0u2x6TBRBTeQStJJkGTKNfjtFTxRUS6V+AZJ8yAkFQmAe52nw9ZPXcLGi/XNPfw2tajekuATjsPicm69bY/2oWe7pXK1tR4SVSOkoxTMAtIo3qp/jbc6IuW0B2gbGguCfnJGQmualTMzFoFA3g5X99NGakgzoX9xfLAVkU9KzskQ=
+  file: "dist/Flowdock Codio.dmg"
+  skip_cleanup: true
+  on:
+    tags: true
