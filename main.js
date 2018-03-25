@@ -2,18 +2,15 @@
 // Copied from electron quick start
 //
 const electron = require('electron')
-const {app, BrowserWindow, shell, Menu} = electron
+const {app, BrowserWindow, shell} = electron
 const path = require('path')
-//const  electronDebug = require('electron-debug')
-//electronDebug({enabled: true, showDevTools: true});
+// const  electronDebug = require('electron-debug')
+// electronDebug({enabled: true, showDevTools: true});
 // Module to create native browser window.
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
-
-
-
 
 const APP_ICON = path.join(__dirname, 'app/resources', 'icon')
 

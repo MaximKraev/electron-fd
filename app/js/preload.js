@@ -20,7 +20,7 @@ onload = () => {
 
     return promise
   }
-  let play;
+  let play
   let currentPlay = 0
   const fixPlay = (win) => {
     if (win.Howl === undefined) {
@@ -89,10 +89,11 @@ onload = () => {
 onload()
 
 // // Spell checker
- const {remote} = require('electron')
- const {nativeImage, app} = remote
+const {remote} = require('electron')
+const {nativeImage, app} = remote
 
-const {SpellCheckHandler, ContextMenuListener, ContextMenuBuilder} = require('electron-spellchecker')
+const { SpellCheckHandler, ContextMenuListener, ContextMenuBuilder } =
+  require('electron-spellchecker')
 
 window.spellCheckHandler = new SpellCheckHandler()
 setTimeout(() => window.spellCheckHandler.attachToInput(), 1000)
@@ -104,10 +105,10 @@ window.spellCheckHandler.currentSpellcheckerChanged.subscribe(() => {
 window.spellCheckHandler.provideHintText('This is probably the language that you want to check in')
 window.spellCheckHandler.autoUnloadDictionariesOnBlur()
 
-let contextMenuBuilder = new ContextMenuBuilder(window.spellCheckHandler)
-let contextMenuListener = new ContextMenuListener((info) => {
+const contextMenuBuilder = new ContextMenuBuilder(window.spellCheckHandler)
+window.contextMenuListener = new ContextMenuListener((info) => {
   contextMenuBuilder.showPopupMenu(info)
-});
+})
 
 // unread Badges
 function updateDockBadge(title) {
@@ -167,16 +168,16 @@ function setBadge(unreadCount) {
 // online/offline detection
 let isOnline = null
 const alertOnlineStatus = () => {
-  const currentStatus = navigator.onLine;
+  const currentStatus = navigator.onLine
   console.log('alertOnline', currentStatus, isOnline)
-  if (isOnline == false && currentStatus == true) {
+  if (isOnline === false && currentStatus === true) {
     // reload
-    window.location.reload();
+    window.location.reload()
   }
   isOnline = currentStatus
 }
 
-window.addEventListener('online',  alertOnlineStatus)
-window.addEventListener('offline',  alertOnlineStatus)
+window.addEventListener('online', alertOnlineStatus)
+window.addEventListener('offline', alertOnlineStatus)
 
 alertOnlineStatus()
