@@ -5,4 +5,4 @@ os: osx
 install:
   - npm install
 script:
-  - npm build
+  - npm run-script build
