@@ -3,15 +3,16 @@ node_js:
 - '8'
 os:
   - osx
+  - linux
 install:
   - npm install
 before_script:
   - npm run eslint
 script:
-  - npm run build
-  - npm run pack_osx
-  - npm run pack_deb
-  - npm run pack_rpm
+  - npm run "build_$TRAVIS_OS_NAME"
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; npm run pack_osx; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; npm run pack_deb; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; npm run pack_rpm; fi
 deploy:
   provider: releases
   api_key:

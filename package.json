@@ -27,7 +27,8 @@
   "scripts": {
     "start": "./node_modules/.bin/electron main.js",
     "eslint": "./node_modules/.bin/eslint app main.js",
-    "build": "./node_modules/.bin/electron-packager . 'FlowdockApp' --icon=app/resources/icon.png --out=dist --overwrite --platform=darwin,linux --arch=x64",
+    "build_osx": "./node_modules/.bin/electron-packager . 'FlowdockApp' --icon=app/resources/icon.png --out=dist --overwrite --platform=darwin --arch=x64",
+    "build_linux": "./node_modules/.bin/electron-packager . 'FlowdockApp' --icon=app/resources/icon.png --out=dist --overwrite --platform=linux --arch=x64",
     "pack_osx": "./node_modules/.bin/electron-installer-dmg 'dist/FlowdockApp-darwin-x64/FlowdockApp.app' 'FlowdockApp' --out=dist",
     "pack_deb": "./node_modules/.bin/electron-installer-debian --src 'dist/FlowdockApp-linux-x64' --arch amd64 --config config.json",
     "pack_rpm": "./node_modules/.bin/electron-installer-redhat --src 'dist/FlowdockApp-linux-x64' --arch amd64 --config config.json"
