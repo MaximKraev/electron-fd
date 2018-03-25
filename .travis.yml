@@ -3,10 +3,12 @@ node_js:
 - '8'
 os: osx
 install:
-- npm install
+  - npm install
+before_script:
+  - npm run-script eslint
 script:
-- npm run-script build_macos
-- npm run-script build_pack_macos
+  - npm run-script build_macos
+  - npm run-script build_pack_macos
 deploy:
   provider: releases
   api_key:

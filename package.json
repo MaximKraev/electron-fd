@@ -1,7 +1,7 @@
 {
   "name": "electron-fd",
   "productName": "Flowdock",
-  "version": "0.1.4-pre2",
+  "version": "0.1.4",
   "main": "main.js",
   "devDependencies": {
     "electron-debug": "^1.5.0",
@@ -21,8 +21,9 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/electron main.js",
+    "eslint": "./node_modules/.bin/eslint app main.js",
     "build_macos": "./node_modules/.bin/electron-packager . 'Flowdock Codio' --icon=app/resources/icon.png --out=dist --overwrite --platform=darwin --arch=x64",
     "build_pack_macos": "./node_modules/.bin/electron-installer-dmg 'dist/Flowdock Codio-darwin-x64/Flowdock Codio.app' 'Flowdock Codio' --out=dist",
-    "build_linux": "./node_modules/.bin/electron-packager . --out=dist --prune --asar --overwrite --platform=linux --arch=x64"
+    "build_linux": "./node_modules/.bin/electron-packager . --out=dist --prune --icon=app/resources/icon.png --asar --overwrite --platform=linux --arch=x64"
   }
 }
