@@ -70,6 +70,9 @@ function createWindow() {
       win.useDefaultWindowBehaviour = false
       return
     }
+    if (url.indexOf('flowdock.com') !== -1) {
+      return
+    }
     event.preventDefault()
     // console.log('Open url', url, disposition)
     if (disposition === 'new-window') {
