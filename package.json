@@ -1,11 +1,14 @@
 {
   "name": "electron-fd",
   "productName": "Flowdock",
-  "version": "0.1.4",
+  "description": "Flowdock electron app",
+  "version": "0.1.5-pre1",
   "main": "main.js",
   "devDependencies": {
     "electron-debug": "^1.5.0",
+    "electron-installer-debian": "^0.8.1",
     "electron-installer-dmg": "^0.2.1",
+    "electron-installer-redhat": "^0.5.0",
     "electron-packager": "^11",
     "electron-rebuild": "^1.7",
     "eslint": "^3.4.0",
@@ -22,8 +25,9 @@
   "scripts": {
     "start": "./node_modules/.bin/electron main.js",
     "eslint": "./node_modules/.bin/eslint app main.js",
-    "build_macos": "./node_modules/.bin/electron-packager . 'Flowdock Codio' --icon=app/resources/icon.png --out=dist --overwrite --platform=darwin --arch=x64",
-    "build_pack_macos": "./node_modules/.bin/electron-installer-dmg 'dist/Flowdock Codio-darwin-x64/Flowdock Codio.app' 'Flowdock Codio' --out=dist",
-    "build_linux": "./node_modules/.bin/electron-packager . --out=dist --prune --icon=app/resources/icon.png --asar --overwrite --platform=linux --arch=x64"
+    "build": "./node_modules/.bin/electron-packager . 'Flowdock Codio' --icon=app/resources/icon.png --out=dist --overwrite --platform=darwin,linux --arch=x64",
+    "pack_osx": "./node_modules/.bin/electron-installer-dmg 'dist/Flowdock Codio-darwin-x64/Flowdock Codio.app' 'Flowdock Codio' --out=dist",
+    "pack_deb": "./node_modules/.bin/electron-installer-debian --src 'dist/Flowdock Codio-linux-x64' --arch amd64 --config config.json",
+    "pack_rpm": "./node_modules/.bin/electron-installer-redhat --src 'dist/Flowdock Codio-linux-x64' --arch amd64 --config config.json"
   }
 }

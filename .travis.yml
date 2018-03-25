@@ -1,14 +1,18 @@
 language: node_js
 node_js:
 - '8'
-os: osx
+os:
+  - linux
+  - osx
 install:
   - npm install
 before_script:
-  - npm run-script eslint
+  - npm run eslint
 script:
-  - npm run-script build_macos
-  - npm run-script build_pack_macos
+  - npm run build
+  - npm run pack_osx
+  - npm run pack_deb
+  - npm run pack_rpm
 deploy:
   provider: releases
   api_key:

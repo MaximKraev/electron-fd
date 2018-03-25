@@ -1,0 +1,7 @@
+{
+  "dest": "dist/",
+  "icon": "app/resources/icon.png",
+  "name": "Flowdock",
+  "productName": "Unofficial Flowdock",
+  "description": "Electron version of Flowdock app"
+}
