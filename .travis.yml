@@ -6,6 +6,8 @@ os:
   - linux
 install:
   - npm install
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then apt-get -qq update && sudo apt-get install -y libxkb-devel; fi
 before_script:
   - npm run eslint
 script:
